@@ -22,14 +22,14 @@ for i in tqdm(range(for_loop_size)):
     else:
         failed_urls = pd.concat([failed_urls, aux], axis=0)
 
-    if i%500 == 0:
-        df.to_csv(f'cars_features_{i}.csv', index=False)
-        failed_urls.to_csv(f'failed_urls_{i}.csv', index=False)
+    if (i != 0) and (i%500 == 0):
+        df.to_csv(f'data/partial_data/cars_features_{i}.csv', index=False)
+        failed_urls.to_csv(f'data/partial_data/failed_urls_{i}.csv', index=False)
 
         df = pd.DataFrame()
         failed_urls = pd.DataFrame()
     
 # Save final batch
 i='final'
-df.to_csv(f'cars_features_{i}.csv', index=False)
-failed_urls.to_csv(f'failed_urls_{i}.csv', index=False)
+df.to_csv(f'data/partial_data/cars_features_{i}.csv', index=False)
+failed_urls.to_csv(f'data/partial_data/failed_urls_{i}.csv', index=False)
