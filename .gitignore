@@ -9,8 +9,11 @@ wheels/
 # Virtual environments
 .venv
 .python-version
-chromedriver.exe
 
 # Data
 *.txt
 *.csv
+
+# Misc 
+chromedriver.exe
+/activate
