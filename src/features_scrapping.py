@@ -6,7 +6,7 @@ import pandas as pd
 
 from tqdm import tqdm
 from bs4 import BeautifulSoup
-from utils_features_scrapper import *
+from src.utils_features_scrapper import *
 
 with open('listings.txt', 'r') as file:
     urls= [line.strip() for line in file] # Each line becomes a list element
