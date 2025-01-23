@@ -49,3 +49,16 @@ def fix_items(row):
 
 def check_feature(row, feature):
     return 1 if feature in ast.literal_eval(row['other_features']) else 0
+
+def merge_categories(df, features, new_column):
+    df = df.copy()
+    
+    df[new_column] = df[features].sum(axis=1)
+    df[new_column] = np.where(df[new_column] > 0, 1, 0)
+
+    if new_column in features:
+        features.remove(new_column)
+
+    df = df.drop(features, axis=1)
+        
+    return df
